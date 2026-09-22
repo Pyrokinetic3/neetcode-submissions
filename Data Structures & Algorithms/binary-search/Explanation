@@ -1,0 +1,13 @@
+For a binary search, we start by creating two pointers, which will help us narrow down the list until we find our target.
+A binary search works by starting in the middle of a list and then using conditional statements to narrow down where the target is until we find it.
+We start by establishing two varibles, left and right.
+Since we have no new info, we need them to be at the ends of the list, so 0 and len(nums) - 1.
+Then, we want to establish our mid variable, but we want to update it as we go, so we need to put it within the while loop.
+We do this by checking if left <= right, because that ensures that it'll either run until our target is found, or when it breaks it will return -1 as instructed.
+After establishing the while condition, we can define mid as between left and right. We use floor division because indexes must be integers.
+We start by checking if the mid already is the target. If it is, we return it immediately. If not, we keep going through the loop.
+Then, we establish our two important elif statements.
+The first elif condition checks to see if target is between left and mid. If it is, we update the right variable to come just under mid, as we now know the location isn't greater than mid.
+The second elif condition does the opposite, if the target is between mid and right, we update left to eliminate everywhere we know the target is not.
+Running through this loop guarantees that we will either arrive at the index of the target, or the condition will fail and the loop will break.
+This is why we have a return -1 statement outside of the loop, to catch any case where the target is not within the list.
