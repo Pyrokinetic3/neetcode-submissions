@@ -1,0 +1,15 @@
+In order to find the minimum rate k, we need to search through all possible rates of k.
+The rate of eating k will never be greater than the largest pile of bananas, so we can assume that the maximum rate will be max(piles)
+The slowest rate is automatically 1, as the rate has to be a positive integer and you can't eat 0 bananas per hour.
+For our while loop, we want it to break when the minimum rate is no longer less than or equal to the maximum rate, because then we'll have searched through all possible rates.
+Since we are doing a binary search, the first rate k that we want to look at should be an integer directly between the min and max rates defined earlier.
+After defining our rate k, we need a variable t that calculates how long it will take to get through every single pile.
+To do this, we need to calculate how long each pile takes to eat with our defined rate k, and sum all of those values.
+Our goal is to round up the result of each pile divided by k because any leftover bananas take an extra hour to finish.
+We can do this using the sum function, floor division, and a for loop to iterate through the piles.
+Now, we want to figure out if k lies inbeteen k and max or k and min. 
+We can do this using an if else combination.
+The first condition we check is if t is less than or equal to our goal h. This is because the target rate can finish the bananas on time or faster, so we check both.
+If it does, we adjust the max rate down to one below the middle rate, because we now know that our target rate is in the lower half.
+The else statement evaluates whether or not t is greater than our goal h. If this is true, we know our target rate lies between k and max, so we make min rate one above the average.
+After the while loop, we return the minimum rate. This will always be our target rate, because any speed below min rate is too slow, and min rate becomes the first speed that works.
