@@ -1,0 +1,14 @@
+This task asks us to find the minimum value of a list that has been rotated, meaning it is not sorted from min to max.
+However, we can stil use binary search, as the list is still in an increasing order except for a single break, which is where the list was rotated to.
+As with any binary search, we start by defining our left and right variables.
+Left is zero, and right is the length of nums minus one.
+Knowing that the list is in order, we need to find the location of the rotation, as that's where the maximum and minimum values are.
+We start with a while loop that ensures the left index is never equal to or greater than the right index, as that's how we'll know that we've seen every item in the list.
+We define our mid variable, which is the average of left and right rounded down using floor division to ensure an integer value.
+Our first conditional statement checks to see if the number in the middle is greater than the number on the right.
+If it is, we bring our left boundary up to one past middle, as we now know the minimum is somewhere between the middle and the right.
+if it isn't, we bring our right boundary down by setting it equal to middle.
+The key here is that we don't set the right boundary to middle - 1, just middle, because we want to eventually return left.
+Since mid could be the minimum in the second scenario, we want to ensure that we are still accounting for it's value.
+Running through this while loop will eventually ensure that the value of left will correspond to the index of the minimum value of the list.
+We finish by returning the number at index left within the list nums.
