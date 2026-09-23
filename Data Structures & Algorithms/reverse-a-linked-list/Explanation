@@ -1,0 +1,7 @@
+The prev variable is our output, and keeps track of the reversed portion. Current is the linked list we start with.
+Our while loop condition ensures that the loop doesn't break until the current list has nothing left inside, as by then everything will be in prev.
+First, we start by saving the next node in the current sequence, which is 7.
+Then, we make the 4 lead into None instead of 7.
+Next, we make prev point to the same line of 4 to None as current does, then we reassign current to whatever's left.
+We repeat these steps three times, until the node current is reversed into the node prev.
+We then return prev to complete the problem.
